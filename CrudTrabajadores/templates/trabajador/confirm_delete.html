@@ -1,0 +1,15 @@
+{% extends 'global_base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>¿Estás seguro de que deseas eliminar este trabajador?</h1>
+
+<p><strong>Nombre:</strong> {{ trabajador.nombre }}</p>
+<p><strong>Apellido:</strong> {{ trabajador.apellido }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'trabajador-list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

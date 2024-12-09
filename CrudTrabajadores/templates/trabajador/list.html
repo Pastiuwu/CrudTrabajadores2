@@ -1,0 +1,59 @@
+{% extends 'global_base.html' %}
+
+{% block content %}
+    <h1>Listado de Trabajadores</h1>
+
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.POST.buscar }}">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Mostrar solo la tabla con los trabajadores filtrados -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha Ingreso</th>
+                <th>Estado Activo</th>
+                <th>Área</th>
+                <th>Departamento</th>
+                <th>Carga Familiar</th>
+                <th>Grupo Salud</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trabajador in trabajadores %}
+                <tr>
+                    <td>{{ trabajador.id }}</td>
+                    <td>{{ trabajador.nombre }}</td>
+                    <td>{{ trabajador.apellido }}</td>
+                    <td>{{ trabajador.fecha_ingreso }}</td>
+                    <td>{{ trabajador.estado_activo }}</td>
+                    <td>{{ trabajador.area.nombre_area }}</td>
+                    <td>{{ trabajador.departamento.nombre_departamento }}</td>
+                    <td>{{ trabajador.cargas_familiar.relacion }}</td>
+                    <td>{{ trabajador.cargas_familiar.grupo_salud }}</td>
+                    <td>
+                        <a href="{% url 'trabajador-detail' trabajador.id %}" class="btn btn-info">Detalles</a>
+                        <a href="{% url 'trabajador-update' trabajador.id %}" class="btn btn-warning">Editar</a>
+                        <a href="{% url 'trabajador-delete' trabajador.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="10">No se encontraron trabajadores.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

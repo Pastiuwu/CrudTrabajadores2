@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Trabajadores</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Ingreso</th>
+                <th>Estado Activo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trabajador in trabajadores %}
+                <tr>
+                    <td>{{ trabajador.nombre }}</td>
+                    <td>{{ trabajador.apellido }}</td>
+                    <td>{{ trabajador.fecha_ingreso }}</td>
+                    <td>{{ trabajador.estado_activo }}</td>
+                    <td>
+                        <a href="{% url 'trabajador_edit' trabajador.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'trabajador_delete' trabajador.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'trabajador_create' %}" class="btn btn-success">Agregar Trabajador</a>
+{% endblock %}

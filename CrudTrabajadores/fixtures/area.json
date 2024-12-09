@@ -1,0 +1,43 @@
+[
+  {
+      "model": "CrudTrabajadores.area",
+      "pk": 1,
+      "fields": {
+          "nombre_area": "Desarrollo",
+          "tipo_area": "IT"
+      }
+  }
+
+,
+
+  {
+      "model": "CrudTrabajadores.area",
+      "pk": 2,
+      "fields": {
+          "nombre_area": "Marketing",
+          "tipo_area": "IT"
+      }
+  }
+
+,
+
+{
+      "model": "CrudTrabajadores.area",
+      "pk": 3,
+      "fields": {
+          "nombre_area": "Finanzas",
+          "tipo_area": "Ventas"
+  }
+}
+
+,
+
+{
+  "model": "CrudTrabajadores.area",
+      "pk": 4,
+      "fields": {
+          "nombre_area": "Administrativa",
+          "tipo_area": "IT"
+  }
+}
+]

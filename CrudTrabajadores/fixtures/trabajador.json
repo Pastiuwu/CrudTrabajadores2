@@ -1,0 +1,42 @@
+[{
+    "model": "CrudTrabajadores.trabajador",
+    "pk": 1,
+    "fields": {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "fecha_ingreso": "2022-01-15",
+        "estado_activo": true,
+        "departamento": 1,  
+        "area": 1,
+        "carga_familiar": 1               
+    }
+}
+,
+{
+    "model": "CrudTrabajadores.trabajador",
+    "pk": 2,
+    "fields": {
+        "nombre": "Ana",
+        "apellido": "López",
+        "fecha_ingreso": "2023-05-10",
+        "estado_activo": false,
+        "departamento": 3,  
+        "area": 2,  
+        "carga_familiar": 2         
+    }
+}
+,
+{
+    "model": "CrudTrabajadores.trabajador",
+    "pk": 3,
+    "fields": {
+        "nombre": "Rodrigo",
+        "apellido": "Gonzalez",
+        "fecha_ingreso": "2023-05-10",
+        "estado_activo": false,
+        "departamento": 2,  
+        "area": 3,  
+        "carga_familiar": 1         
+    }
+}
+]

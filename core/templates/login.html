@@ -1,0 +1,50 @@
+{% extends 'home_base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center" style="min-height: 78vh;">
+        <!-- Columna izquierda: Formulario de login -->
+        <div class="col-12 col-md-6 mb-4 mb-md-0">
+            {% if request.session.trabajador_rut %}
+                <div class="alert alert-success mt-3">
+                    <strong>Bienvenido, {{ request.session.trabajador_nombre }} (RUT: {{ request.session.trabajador_rut }})</strong>
+                    
+                </div>
+                
+                
+            {% else %}
+                <div class="card shadow-lg p-4 rounded">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Iniciar Sesión</h5>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="rut" class="form-label">RUT</label>
+                                <input type="text" class="form-control" id="rut" name="rut" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            
+                                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                                <a href="{% url 'register' %}" class="btn btn-secondary w-100 mt-2" role="button">Registrarse</a>
+                            
+                        </form>
+                        {% if error %}
+                            <div class="alert alert-danger mt-3 text-center">
+                                <strong>{{ error }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Columna derecha: Imagen -->
+        <div class="col-12 col-md-6">
+            <img src="{% static 'img/login.png' %}" alt="Imagen de Login" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+{% endblock %}

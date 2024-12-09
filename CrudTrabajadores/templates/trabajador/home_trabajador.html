@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Detalles del Trabajador</h1>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0">Trabajador</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Nombre:</strong> {{ trabajador.nombre }}</p>
+            <p><strong>Apellido:</strong> {{ trabajador.apellido }}</p>
+            <p><strong>Fecha de Ingreso:</strong> {{ trabajador.fecha_ingreso }}</p>
+            <p><strong>Estado Activo:</strong> {{ trabajador.estado_activo|yesno:"Sí,No" }}</p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-success text-white">
+            <h2 class="h4 mb-0">Área</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Nombre del Área:</strong> {{ trabajador.area.nombre_area }}</p>
+            <p><strong>Tipo:</strong> {{ trabajador.area.tipo_area }}</p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-info text-white">
+            <h2 class="h4 mb-0">Departamento</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Nombre:</strong> {{ trabajador.departamento.nombre_departamento }}</p>
+            <p><strong>Ubicación:</strong> {{ trabajador.departamento.ubicacion }}</p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-warning text-white">
+            <h2 class="h4 mb-0">Carga Familiar</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Nombre:</strong> {{ trabajador.cargas_familiar.nombre_carga }}</p>
+            <p><strong>Relación:</strong> {{ trabajador.cargas_familiar.relacion }}</p>
+            <p><strong>Grupo de Salud:</strong> {{ trabajador.cargas_familiar.grupo_salud }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

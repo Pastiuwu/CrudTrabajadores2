@@ -1,0 +1,25 @@
+{% extends 'global_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded" style="width: 100%; max-width: 500px;">
+        <div class="card-body text-center">
+            <!-- Imagen de bienvenida -->
+            <img src="{% static 'img/caricatura.jpg' %}" alt="img" class="img-fluid mb-3" style="max-height: 200px;">
+            
+            <h1 class="card-title mb-4">Menú de Usuario</h1>
+            <p class="card-text lead">Bienvenido al sistema de gestión de trabajadores</p>
+            
+            <div class="d-grid gap-3 mt-4">
+                <!-- Botón para ir a la lista de trabajadores -->
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg" role="button">
+                    Inicio
+                </a>
+                
+                <!-- Agrega más botones aquí si es necesario -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

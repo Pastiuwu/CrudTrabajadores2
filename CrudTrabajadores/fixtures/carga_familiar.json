@@ -1,0 +1,23 @@
+[
+    {
+        "model": "CrudTrabajadores.cargafamiliar",
+        "pk": 1,
+        "fields": {
+            "nombre_carga": "Carla",
+            "relacion": "Hija",
+            "grupo_salud": "Fonasa"
+        }
+    }
+,
+    
+{
+    "model": "CrudTrabajadores.cargafamiliar",
+    "pk": 2,
+    "fields": {
+        "nombre_carga": "Roberto",
+        "relacion": "Hijo",
+        "grupo_salud": "Isapre"
+    }
+}
+
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 1,
+        "fields": {
+            "nombre_departamento": "Recursos Humanos",
+            "ubicacion": "Edificio A"
+        }
+    }
+,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 2,
+        "fields": {
+            "nombre_departamento": "Informatica",
+            "ubicacion": "Edificio B"
+        }
+    }
+,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 3,
+        "fields": {
+            "nombre_departamento": "Marketing",
+            "ubicacion": "Edificio C"
+        }
+    }
+
+    ,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 4,
+        "fields": {
+            "nombre_departamento": "Contabilidad",
+            "ubicacion": "Edificio D"
+        }
+    }
+
+    ,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 5,
+        "fields": {
+            "nombre_departamento": "Operacciones",
+            "ubicacion": "Edificio E"
+        }
+    }
+    ,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 6,
+        "fields": {
+            "nombre_departamento": "Comercial",
+            "ubicacion": "Edificio F"
+        }
+    }
+    ,
+    {
+        "model": "CrudTrabajadores.departamento",
+        "pk": 7,
+        "fields": {
+            "nombre_departamento": "Dirección General",
+            "ubicacion": "Edificio G"
+        }
+    }
+]
