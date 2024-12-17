@@ -17,47 +17,37 @@ from CrudTrabajadores.models import Trabajador
 
 def login_view(request):
     if request.method == 'POST':
-        # Usamos 'rut' como 'username' para autenticar
-        username = request.POST['rut']  # Asignamos 'rut' a 'username'
+        username = request.POST['rut'] 
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)  # Autenticamos usando 'username'
+        user = authenticate(request, username=username, password=password)  
         
         if user is not None:
             login(request, user)
-            
-            # Guardar el RUT y el nombre de usuario en la sesión
             if user.is_superuser:
-                request.session['trabajador_rut'] = username  # Almacena el RUT del superusuario
-                request.session['user'] = user.username  # Guarda el nombre de usuario en la sesión
-                return redirect('trabajador-list')  # Redirige a la lista de trabajadores si es superusuario
+                request.session['trabajador_rut'] = username  
+                request.session['user'] = user.username  
+                return redirect('trabajador-list')  
             
             try:
-                # Obtener el trabajador asociado al usuario autenticado
-                trabajador = Trabajador.objects.get(user=user)  # Buscamos el trabajador asociado al usuario
                 
-                # Guardar el RUT y el nombre de usuario en la sesión
+                trabajador = Trabajador.objects.get(user=user)  
                 request.session['trabajador_rut'] = trabajador.rut
-                request.session['user'] = user.username  # Guarda el nombre de usuario en la sesión
+                request.session['user'] = user.username  
                 
-                # Redirigir al detalle del trabajador usando su ID
+               
                 return redirect('trabajador-detail', pk=trabajador.id)
             except Trabajador.DoesNotExist:
-                # Si no existe el trabajador, mostrar un mensaje
                 return render(request, 'login.html', {'error': 'No se encuentra trabajador asociado al usuario.'})
         else:
-            # Si las credenciales son incorrectas, mostramos un error
             return render(request, 'login.html', {'error': 'Credenciales incorrectas'})
     else:
         return render(request, 'login.html')
 
 
-
-
-
 def logout_view(request):
-    logout(request)  # Cierra la sesión de Django
-    request.session.flush()  # Elimina las variables de la sesión de Trabajador
-    return redirect('home')  # Redirige al login
+    logout(request)  
+    request.session.flush()  
+    return redirect('home')  
 
 
 
@@ -70,10 +60,9 @@ def register_view(request):
             nombre = form.cleaned_data['nombre']
             apellido = form.cleaned_data['apellido']
             
-            # Crear el usuario
+        
             user = User.objects.create_user(username=rut, password=password)
             
-            # Crear el trabajador
             trabajador = Trabajador(
                 rut=rut,
                 nombre=nombre,
