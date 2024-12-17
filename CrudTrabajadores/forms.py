@@ -26,19 +26,14 @@ class RegistroTrabajadorForm(forms.Form):
         # Validar si el RUT ya existe
         if Trabajador.objects.filter(rut=rut).exists():
             raise ValidationError("Este RUT ya está registrado.")
-        
         return rut
 
-    
 
 
 class TrabajadorForm(forms.ModelForm):
     class Meta:
         model = Trabajador
         fields = ['rut', 'nombre', 'apellido', 'fecha_ingreso', 'estado_activo', 'departamento', 'area', 'cargas_familiar']
-
-    # Opcionalmente puedes agregar una validación o algún widget
-
 
 
 class DepartamentoForm(forms.ModelForm):
